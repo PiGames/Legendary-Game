@@ -6,9 +6,11 @@ export default class Layout extends React.Component {
     this.state = {
       currentView: "characterCreator",
       storyIndex: -1,
+      characterDetails: {},
     }
 
     this.changeView = this.changeView.bind( this );
+    this.setCharacterDeatils = this.setCharacterDeatils.bind( this );
 
     this.socket = io();
     const socket = this.socket;
@@ -28,6 +30,12 @@ export default class Layout extends React.Component {
       socket.on( "game ended", ( index ) => {
         this.changeView( "gameEnded" )
       } );
+
+      socket.on( "user data changed", ( data ) => {
+        if ( data.id === id ) {
+          this.setCharacterDeatils( data );
+        }
+      } )
     } );
   }
 
@@ -35,12 +43,16 @@ export default class Layout extends React.Component {
     this.setState( { currentView: viewName } );
   }
 
+  setCharacterDeatils( characterDetails ) {
+    this.setState( { characterDetails } );
+  }
+
   render() {
     switch ( this.state.currentView ) {
       case "characterCreator": {
         return (
           <div>
-            <CreateCharacter changeView={ this.changeView } socket={this.socket} />
+            <CreateCharacter setCharacterDeatils={ this.setCharacterDeatils } changeView={ this.changeView } socket={this.socket} />
           </div>
         );
       }
@@ -55,6 +67,7 @@ export default class Layout extends React.Component {
         return (
           <div>
             <strong>Game started ({ this.state.storyIndex })</strong>
+            <p>{ JSON.stringify( this.state.characterDetails ) }</p>
           </div>
         );
       }

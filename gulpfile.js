@@ -40,7 +40,7 @@ const watchify = require("watchify");
 // Constants
 const SOURCE_PATH = "./src";
 const BUILD_PATH = "./build";
-const STATIC_FILES = ["/browserconfig.xml", "/manifest.json", "/img", "/favicon.ico"]; // relative to /src/
+const STATIC_FILES = ["/browserconfig.xml", "/manifest.json", "/img", "/favicon.ico", "/fonts"]; // relative to /src/
 const SCRIPTS_TO_WATCH = [`${SOURCE_PATH}/js/app.js`];
 const KEEP_FILES = true;
 const OPEN_TAB = argv.open || argv.o;

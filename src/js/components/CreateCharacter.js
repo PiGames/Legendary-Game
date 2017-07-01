@@ -52,12 +52,15 @@ export default class CreateCharacter extends React.Component {
     }
 
     formData.skills = this.state.skillValues;
+    formData.hp = 100;
 
     console.log( formData );
 
     this.setState( { formSent: true } );
     this.props.socket.emit( "user done", formData );
+    this.props.setCharacterDeatils( formData );
     this.props.changeView( "waitingForStart" );
+
     e.preventDefault();
     return false;
   }
@@ -113,7 +116,8 @@ export default class CreateCharacter extends React.Component {
 
     if ( this.id !== false ) {
       return (
-        <form onSubmit={ ( e ) => { this.send.call( this, e ) } } >
+        <form id="character-creator" onSubmit={ ( e ) => { this.send.call( this, e ) } } >
+          <img className="character-image" src="http://unsplash.it/1920/1080" />
           <h2>Imię</h2>
           <input type="text" ref={ ( input ) => { this.formData.name = input } } required />
           <h2>Klasa</h2>
@@ -124,15 +128,31 @@ export default class CreateCharacter extends React.Component {
           </select>
           <h2>Umiejętności</h2>
 
-          <h3>Pozostało punktów umiejętności {100 - sum}</h3>
-          <h3>Zręczność</h3><span>{ this.state.skillValues.agility }</span><button type="button" onClick={ () => { this.add( "agility" ) } }>+</button><button type="button" onClick={ () => { this.remove( "agility" ) } }>-</button>
-          <h3>Inteligencja</h3><span>{ this.state.skillValues.inteligence }</span><button type="button" onClick={ () => { this.add( "inteligence" ) } }>+</button><button type="button" onClick={ () => { this.remove( "inteligence" ) } }>-</button>
-          <h3>Siła</h3><span>{ this.state.skillValues.strength }</span><button type="button" onClick={ () => { this.add( "strength" ) } }>+</button><button type="button" onClick={ () => { this.remove( "strength" ) } }>-</button>
-          <h3>Percepcja</h3><span>{ this.state.skillValues.perception }</span><button type="button" onClick={ () => { this.add( "perception" ) } }>+</button><button type="button" onClick={ () => { this.remove( "perception" ) } }>-</button>
-          <h3>Charyzma</h3><span>{ this.state.skillValues.charisma }</span><button type="button" onClick={ () => { this.add( "charisma" ) } }>+</button><button type="button" onClick={ () => { this.remove( "charisma" ) } }>-</button>
+          <h3>Pozostało punktów umiejętności:<br /><span>{100 - sum}</span></h3>
+          <h3>Zręczność</h3>
+            <span>{ this.state.skillValues.agility }</span>
+            <button type="button" onClick={ () => { this.remove( "agility" ) } }>-</button>
+            <button type="button" onClick={ () => { this.add( "agility" ) } }>+</button>
+          <h3>Inteligencja</h3>
+            <span>{ this.state.skillValues.inteligence }</span>
+            <button type="button" onClick={ () => { this.remove( "inteligence" ) } }>-</button>
+            <button type="button" onClick={ () => { this.add( "inteligence" ) } }>+</button>
+          <h3>Siła</h3>
+            <span>{ this.state.skillValues.strength }</span>
+            <button type="button" onClick={ () => { this.remove( "strength" ) } }>-</button>
+            <button type="button" onClick={ () => { this.add( "strength" ) } }>+</button>
+          <h3>Percepcja</h3>
+            <span>{ this.state.skillValues.perception }</span>
+            <button type="button" onClick={ () => { this.remove( "perception" ) } }>-</button>
+            <button type="button" onClick={ () => { this.add( "perception" ) } }>+</button>
+          <h3>Charyzma</h3>
+            <span>{ this.state.skillValues.charisma }</span>
+            <button type="button" onClick={ () => { this.remove( "charisma" ) } }>-</button>
+            <button type="button" onClick={ () => { this.add( "charisma" ) } }>+</button>
 
           <br />
-          <button disabled={ this.state.formSent } type="submit">Submit</button>
+          <button disabled={ this.state.formSent } type="submit">Dołącz</button>
+          <div className="sheet" />
         </form>
       );
     } else {
