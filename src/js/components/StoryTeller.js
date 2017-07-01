@@ -35,13 +35,17 @@ export default class StoryTeller extends React.Component{
   goToNextScene(){
     if(this.state.sceneIndex+1 === this.state.script.scenes.length ){
         this.setState({isEnd: true});
+        socket.emit( "game ended" );
         return;
     }
-    
+
+    socket.emit( "scene change", this.state.sceneIndex + 1 );
+
     this.setState({
       sceneIndex: this.state.sceneIndex + 1
     });
   }
+
   render(){
     return (
       <div>
