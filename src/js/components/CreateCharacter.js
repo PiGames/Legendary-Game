@@ -72,7 +72,7 @@ export default class CreateCharacter extends React.Component {
 
     this.state.currentClass = currentClass;
 
-    this.setState( { skillValues: defaultSkills[ currentClass ] } )
+    this.setState( { skillValues: Object.assign( {}, defaultSkills[ currentClass ] ) } )
   }
 
   add( key ) {
@@ -117,7 +117,7 @@ export default class CreateCharacter extends React.Component {
     if ( this.id !== false ) {
       return (
         <form id="character-creator" onSubmit={ ( e ) => { this.send.call( this, e ) } } >
-          <img className="character-image" src="http://unsplash.it/1920/1080" />
+          <img className="character-image" src={`/mobile-static/img/${this.state.currentClass}_profile.png`} />
           <h2>Imię</h2>
           <input type="text" ref={ ( input ) => { this.formData.name = input } } required />
           <h2>Klasa</h2>
