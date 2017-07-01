@@ -57,6 +57,7 @@ export default class CreateCharacter extends React.Component {
 
     this.setState( { formSent: true } );
     this.props.socket.emit( "user done", formData );
+    this.props.changeView( "waitingForStart" );
     e.preventDefault();
     return false;
   }
