@@ -1,60 +1,63 @@
 import React from "react";
-import CreateCharacter from "./CreateCharacter";
+import Users from './Users';
+
 export default class Layout extends React.Component {
   constructor() {
     super();
     this.state = {
-      currentView: "characterCreator",
+      currentView: "waitingForStart",
       storyIndex: -1,
+      usersReady: []
     }
 
     this.changeView = this.changeView.bind( this );
 
-    this.socket = io();
+    this.socket = io("", { query: "clinetType=host" });
     const socket = this.socket;
-    socket.on( "assigned id", ( id ) => {
-      socket.on( "game started", () => {
-        this.changeView( "gameStarted" );
-      } );
-
       socket.on( "game started", () => {
         this.changeView( "gameStarted" );
       } );
 
       socket.on( "scene change", ( index ) => {
-        this.setState( { storyIndex: index } )
+        this.setState( { storyIndex: index } );
       } );
+
+      socket.on( "users changed", (data ) => {
+        this.setState({usersReady: data.usersReady});
+      });
 
       socket.on( "game ended", ( index ) => {
         this.changeView( "gameEnded" )
       } );
-    } );
+
+      socket.on( "user data changed", ( data ) => {
+        this.updateUsers(data);
+      } )
   }
 
   changeView( viewName ) {
     this.setState( { currentView: viewName } );
   }
 
+  updateUsers( data ) {
+    const users = [...this.state.usersReady];
+    const index = users.findIndex( item => item.id === data.id );
+    users[index] = data;
+    this.setState({usersReady: users});
+  }
+
   render() {
     switch ( this.state.currentView ) {
-      case "characterCreator": {
-        return (
-          <div>
-            <CreateCharacter changeView={ this.changeView } socket={this.socket} />
-          </div>
-        );
-      }
       case "waitingForStart": {
         return (
-          <div>
-            <strong>Waiting For Start</strong>
-          </div>
+          <Users users={this.state.usersReady}/>
         );
       }
       case "gameStarted": {
         return (
           <div>
             <strong>Game started ({ this.state.storyIndex })</strong>
+            <Users users={this.state.usersReady}/>
           </div>
         );
       }
