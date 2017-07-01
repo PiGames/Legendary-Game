@@ -118,14 +118,14 @@ export default class CreateCharacter extends React.Component {
       return (
         <form id="character-creator" onSubmit={ ( e ) => { this.send.call( this, e ) } } >
           <img className="character-image" src={`/mobile-static/img/${this.state.currentClass}_profile.png`} />
-          <h2>Imię</h2>
-          <input type="text" ref={ ( input ) => { this.formData.name = input } } required />
           <h2>Klasa</h2>
           <select onChange={ ( e ) => this.classChanged.call( this, e ) } ref={ ( select ) => { this.formData.class = select } }>
             <option id="elf">Elf</option>
             <option id="dwarf">Krasnolud</option>
             <option id="hobbit">Niziołek</option>
           </select>
+          <h2>Imię</h2>
+          <input type="text" ref={ ( input ) => { this.formData.name = input } } required />
           <h2>Umiejętności</h2>
 
           <h3>Pozostało punktów umiejętności:<br /><span>{100 - sum}</span></h3>

@@ -1,10 +1,13 @@
 import React from "react";
 import CreateCharacter from "./CreateCharacter";
+import GameStarted from "./GameStarted";
+
 export default class Layout extends React.Component {
   constructor() {
     super();
     this.state = {
       currentView: "characterCreator",
+      // currentView: "gameStarted",
       storyIndex: -1,
       characterDetails: {},
     }
@@ -58,18 +61,13 @@ export default class Layout extends React.Component {
       }
       case "waitingForStart": {
         return (
-          <div>
-            <strong>Waiting For Start</strong>
+          <div id="waitingForStart">
+            <span>Poczekaj, aż rozpocznie się wasza przygoda...</span>
           </div>
         );
       }
       case "gameStarted": {
-        return (
-          <div>
-            <strong>Game started ({ this.state.storyIndex })</strong>
-            <p>{ JSON.stringify( this.state.characterDetails ) }</p>
-          </div>
-        );
+        return <GameStarted characterDetails={ this.state.characterDetails } />;
       }
       case "gameEnded": {
         return (
