@@ -33,19 +33,31 @@ export default class StoryTeller extends React.Component{
     }
   }
   goToNextScene(){
-    if(this.state.sceneIndex+1 === this.state.script.scenes.length ){
+    const newSceneIndex = this.state.sceneIndex + 1;
+
+    if(newSceneIndex === this.state.script.scenes.length ){
         this.setState({isEnd: true});
         socket.emit( "game ended" );
         return;
     }
 
-    socket.emit( "scene change", this.state.sceneIndex + 1 );
-
+    socket.emit( "scene change", newSceneIndex );
+    this.playAudio(newSceneIndex);
     this.setState({
-      sceneIndex: this.state.sceneIndex + 1
+      sceneIndex: newSceneIndex
     });
   }
-
+  playAudio(id){
+    if(this.myAudio){
+      this.myAudio.pause();
+    }
+    this.myAudio = new Audio(`desktop-static/sfx/${id}.mp3`);
+    this.myAudio.addEventListener('ended', function() {
+      this.currentTime = 0;
+      this.play();
+    }, false);
+    this.myAudio.play();
+  }
   render(){
     return (
       <div>
