@@ -1,6 +1,7 @@
 import React from "react";
 import Setup from "./Setup";
 import Users from "./Users";
+import StoryTeller from "./StoryTeller";
 
 export default class Layout extends React.Component {
   constructor() {
@@ -24,11 +25,15 @@ export default class Layout extends React.Component {
   }
 
   render() {
-    let setup = ( <Setup usersConnected={this.state.usersConnected} usersReady={this.state.usersReady} /> );
-    if ( this.state.hasGameStarted ) {
-      setup = ( <Users usersReady={this.state.usersReady} /> );
+    if(!this.state.hasGameStarted){
+      return (<Setup usersConnected={this.state.usersConnected} usersReady={this.state.usersReady} />);
+    } else {
+      return (
+      <div>
+        <Users usersReady={this.state.usersReady} />
+        <StoryTeller/>
+      </div>
+    );
     }
-
-    return setup;
   }
 }
