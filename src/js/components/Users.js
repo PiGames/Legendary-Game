@@ -1,9 +1,14 @@
 import React from 'react'
 
-const Users = ( { users } ) => (
+const Users = ( { users, usersThrows=[] } ) => (
   <div id="users-container">
     {
-      users.map((usr, id)=>(
+      users.map((usr, id)=>{
+
+        const userThrow = usersThrows.find( (usrThrow)=>usrThrow.id ===usr.id);
+        const throwResult = userThrow ? userThrow.throwResult : null;
+
+      return (
         <div className="card" key={id}>
           <img src={`/mobile-static/img/${usr.class}_profile.png`} className="character-image" />
           <div className="name">
@@ -33,9 +38,16 @@ const Users = ( { users } ) => (
             <h2>Charyzma</h2>
             <span>{ usr.skills.charisma }</span>
           </div>
+          {
+            (throwResult !== null)?
+            (<div>Rzucił: {throwResult}</div>):
+            null
+          }
           <div className="sheet"></div>
         </div>
-        )
+      );
+
+      }
       )
     }
   </div>

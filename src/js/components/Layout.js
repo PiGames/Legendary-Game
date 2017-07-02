@@ -7,7 +7,8 @@ export default class Layout extends React.Component {
     this.state = {
       currentView: "waitingForStart",
       storyIndex: -1,
-      usersReady: []
+      usersReady: [],
+      usersThrows: []
     }
 
     this.changeView = this.changeView.bind( this );
@@ -33,6 +34,16 @@ export default class Layout extends React.Component {
       socket.on( "user data changed", ( data ) => {
         this.updateUsers(data);
       } )
+      socket.on("throw dice", (data)=> {
+        const usersThrows = [...this.state.usersThrows, data];
+        this.setState({usersThrows});
+      });
+      socket.on("close throw info", (id)=>{
+        const usersThrows = [...this.state.usersThrows];
+        const index=usersThrows.findIndex(usr=>usr.id === id);
+        usersThrows.splice(index, 1);
+        this.setState({usersThrows});
+      });
   }
 
   changeView( viewName ) {
@@ -58,7 +69,7 @@ export default class Layout extends React.Component {
         return (
           <div>
             <strong>Game started ({ this.state.storyIndex })</strong>
-            <Users users={this.state.usersReady}/>
+            <Users users={this.state.usersReady} usersThrows={this.state.usersThrows}/>
             <div style={{backgroundImage: `url(/mobile-static/img/${backgrounds[ this.state.storyIndex + 1 ]})`}} className="background" />
           </div>
         );
