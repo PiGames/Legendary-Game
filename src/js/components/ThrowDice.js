@@ -25,9 +25,9 @@ export default class ThrowDice extends React.Component{
       {
         (this.state.throwResult!==null)?
         (
-          <div>
-          <h2>Wyrzuciłeś&nbsp;&nbsp;&nbsp;{this.state.throwResult}</h2>
-          <button onClick={this.closeThrowInfo.bind(this)}>Zamknij</button>
+          <div id="throwDice">
+            <h2>NPC wyrzucił&nbsp;&nbsp;&nbsp;{this.state.throwResult}</h2>
+            <button onClick={this.closeThrowInfo.bind(this)}>Zamknij</button>
           </div>
         ): null
       }
