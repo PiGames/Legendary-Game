@@ -5,8 +5,7 @@ export default class Layout extends React.Component {
   constructor() {
     super();
     this.state = {
-      // currentView: "waitingForStart",
-      currentView: "gameEnded",
+      currentView: "waitingForStart",
       storyIndex: -1,
       usersReady: [],
       usersThrows: []
