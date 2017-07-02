@@ -92,7 +92,7 @@ export default class Layout extends React.Component {
           <div>
             <Users users={this.state.usersReady} usersThrows={this.state.usersThrows}/>
             <div style={{backgroundImage: `url(/mobile-static/img/${backgrounds[ this.state.storyIndex + 1 ]})`}} className="background" />
-            <div>{
+            <div id="npc-dice">{
               (this.state.npcThrow !== null )?
               (<div>NPC wyrzucił {this.state.npcThrow}</div>):
               null
