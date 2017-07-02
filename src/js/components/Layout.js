@@ -7,7 +7,7 @@ export default class Layout extends React.Component {
     super();
     this.state = {
       currentView: "characterCreator",
-      // currentView: "gameStarted",
+      // currentView: "waitingForStart",
       storyIndex: -1,
       characterDetails: {},
     }
