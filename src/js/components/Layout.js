@@ -21,6 +21,7 @@ export default class Layout extends React.Component {
       } );
 
       socket.on( "scene change", ( index ) => {
+        this.playAudio(index);
         this.setState( { storyIndex: index } );
       } );
 
@@ -46,6 +47,17 @@ export default class Layout extends React.Component {
         this.setState({usersThrows});
       });
   }
+  playAudio(id){
+    if(this.myAudio){
+      this.myAudio.pause();
+    }
+    this.myAudio = new Audio(`desktop-static/sfx/${id}.mp3`);
+    this.myAudio.addEventListener('ended', function() {
+      this.currentTime = 0;
+      this.play();
+    }, false);
+    this.myAudio.play();
+  }
 
   changeView( viewName ) {
     this.setState( { currentView: viewName } );
@@ -66,7 +78,7 @@ export default class Layout extends React.Component {
         );
       }
       case "gameStarted": {
-        const backgrounds = [ 'forest.png', 'scena0.png', 'rynek.png', 'karczma.png', 'karczma.png', 'background.png', 'background.png', 'background.png' ];
+        const backgrounds = [ 'forest.png', 'scena0.png', 'rynek.png', 'karczma.png', 'karczma.png', 'piwnica.png', 'piwnica.png', 'piwnica.png' ];
         return (
           <div>
             <Users users={this.state.usersReady} usersThrows={this.state.usersThrows}/>
