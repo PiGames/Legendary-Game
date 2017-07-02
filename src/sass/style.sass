@@ -4,6 +4,19 @@ body
   height: 100vh
   margin: 0
   overflow: hidden
+  font-family: "enchanted_land"
+
+#gameEnded
+  display: flex
+  align-items: center
+  justify-content: center
+  height: 100vh
+
+  h1
+    color: #fff
+    font-size: 14vw
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5)
+
 
 .sheet
   position: absolute
@@ -30,7 +43,7 @@ body
   display: inline-block
   position: relative
   flex: 1
-  margin-right: 4vw
+  margin: 0 2vw
   max-width: 300px
   padding-bottom: 20vw
   padding: 64px 44px
@@ -69,3 +82,11 @@ body
 
     span
       font-size: 32px
+
+.backgrounds
+  width: 100vw
+  height: 100vh
+  position: absolute
+  z-index: -2
+  top: 0
+  left: 0
