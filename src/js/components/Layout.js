@@ -9,7 +9,8 @@ export default class Layout extends React.Component {
       currentView: "gameEnded",
       storyIndex: -1,
       usersReady: [],
-      usersThrows: []
+      usersThrows: [],
+      npcThrow: null
     }
 
     this.changeView = this.changeView.bind( this );
@@ -46,6 +47,12 @@ export default class Layout extends React.Component {
         usersThrows.splice(index, 1);
         this.setState({usersThrows});
       });
+      socket.on("throw dice npc", (result)=>{
+        this.setState({npcThrow: result});
+      });
+      socket.on( 'close throw info npc', () => {
+        this.setState({npcThrow: null});
+      })
   }
   playAudio(id){
     if(this.myAudio){
@@ -83,6 +90,11 @@ export default class Layout extends React.Component {
           <div>
             <Users users={this.state.usersReady} usersThrows={this.state.usersThrows}/>
             <div style={{backgroundImage: `url(/mobile-static/img/${backgrounds[ this.state.storyIndex + 1 ]})`}} className="background" />
+            <div>{
+              (this.state.npcThrow !== null )?
+              (<div>NPC wyrzucił {this.state.npcThrow}</div>):
+              null
+            }</div>
           </div>
         );
       }
