@@ -1,9 +1,10 @@
 import React from "react";
+import ThrowDice from './ThrowDice';
+
 
 export default class CreateCharacter extends React.Component {
   render() {
     const characterDetails = this.props.characterDetails;
-    // const characterDetails = {"skills":{"agility":15,"inteligence":10,"strength":5,"perception":0,"charisma":20},"class":"elf","name":"Bożydar","hp":100};
     return (
       <div id="gameStarted">
         <img className="character-image" src={`/mobile-static/img/${characterDetails.class}_profile.png`} />
@@ -34,7 +35,8 @@ export default class CreateCharacter extends React.Component {
           <h2>Charyzma</h2>
           <span>{ characterDetails.skills.charisma }</span>
         </div>
-        <div className="sheet" />
+        <div className="sheet"/>
+        <ThrowDice id={this.props.id} socket={this.props.socket}/>
       </div>
     );
   }

@@ -18,6 +18,7 @@ export default class Layout extends React.Component {
     this.socket = io();
     const socket = this.socket;
     socket.on( "assigned id", ( id ) => {
+      this.id = id;
       socket.on( "game started", () => {
         this.changeView( "gameStarted" );
       } );
@@ -67,7 +68,7 @@ export default class Layout extends React.Component {
         );
       }
       case "gameStarted": {
-        return <GameStarted characterDetails={ this.state.characterDetails } />;
+        return <GameStarted id={this.id} characterDetails={ this.state.characterDetails } socket={this.socket}/>;
       }
       case "gameEnded": {
         return (
