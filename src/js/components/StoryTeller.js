@@ -42,21 +42,9 @@ export default class StoryTeller extends React.Component{
     }
 
     socket.emit( "scene change", newSceneIndex );
-    this.playAudio(newSceneIndex);
     this.setState({
       sceneIndex: newSceneIndex
     });
-  }
-  playAudio(id){
-    if(this.myAudio){
-      this.myAudio.pause();
-    }
-    this.myAudio = new Audio(`desktop-static/sfx/${id}.mp3`);
-    this.myAudio.addEventListener('ended', function() {
-      this.currentTime = 0;
-      this.play();
-    }, false);
-    this.myAudio.play();
   }
   render(){
     return (
