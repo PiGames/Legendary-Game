@@ -12,7 +12,7 @@ export default class Layout extends React.Component {
 
     this.changeView = this.changeView.bind( this );
 
-    this.socket = io("", { query: "clinetType=host" });
+    this.socket = io( "", { query: "clinetType=host" } );
     const socket = this.socket;
       socket.on( "game started", () => {
         this.changeView( "gameStarted" );
@@ -54,10 +54,12 @@ export default class Layout extends React.Component {
         );
       }
       case "gameStarted": {
+        const backgrounds = [ 'background.png', 'forest.png' ];
         return (
           <div>
             <strong>Game started ({ this.state.storyIndex })</strong>
             <Users users={this.state.usersReady}/>
+            <div style={{backgroundImage: `url(/mobile-static/img/${backgrounds[ this.state.storyIndex + 1 ]})`}} className="background" />
           </div>
         );
       }
