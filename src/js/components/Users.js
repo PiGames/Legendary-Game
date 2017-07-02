@@ -38,11 +38,13 @@ const Users = ( { users, usersThrows=[] } ) => (
             <h2>Charyzma</h2>
             <span>{ usr.skills.charisma }</span>
           </div>
-          {
-            (throwResult !== null)?
-            (<div>Rzucił: {throwResult}</div>):
-            null
-          }
+          <div className="name">
+            {
+              (throwResult !== null)?
+              (<div>Rzucił: {throwResult}</div>):
+              null
+            }
+          </div>
           <div className="sheet"></div>
         </div>
       );

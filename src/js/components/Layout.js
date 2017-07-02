@@ -66,10 +66,9 @@ export default class Layout extends React.Component {
         );
       }
       case "gameStarted": {
-        const backgrounds = [ 'background.png', 'forest.png' ];
+        const backgrounds = [ 'forest.png', 'scena0.png', 'rynek.png', 'karczma.png', 'karczma.png', 'background.png', 'background.png', 'background.png' ];
         return (
           <div>
-            <strong>Game started ({ this.state.storyIndex })</strong>
             <Users users={this.state.usersReady} usersThrows={this.state.usersThrows}/>
             <div style={{backgroundImage: `url(/mobile-static/img/${backgrounds[ this.state.storyIndex + 1 ]})`}} className="background" />
           </div>
