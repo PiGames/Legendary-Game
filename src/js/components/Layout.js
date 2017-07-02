@@ -7,7 +7,7 @@ export default class Layout extends React.Component {
     super();
     this.state = {
       currentView: "characterCreator",
-      // currentView: "waitingForStart",
+      // currentView: "gameEnded",
       storyIndex: -1,
       characterDetails: {},
     }
@@ -72,8 +72,8 @@ export default class Layout extends React.Component {
       }
       case "gameEnded": {
         return (
-          <div>
-            <strong>Game ended ;(</strong>
+          <div id="gameEnded">
+            <h1>Twoja przygoda się zakończyła!</h1>
           </div>
         );
       }
