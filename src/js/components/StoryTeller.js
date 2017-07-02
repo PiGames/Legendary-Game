@@ -66,7 +66,7 @@ export default class StoryTeller extends React.Component{
             (Object.keys(this.state.script).length > 0) ?
             this.getCurrentScene() : null
           }
-          <button disabled={this.state.isEnd} onClick={this.goToNextScene.bind(this)}>Next</button>
+          <button disabled={this.state.isEnd} onClick={this.goToNextScene.bind(this)}>Dalej</button>
           <div className="sheet" />
         </div>
       </div>
