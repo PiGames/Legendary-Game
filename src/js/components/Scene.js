@@ -8,6 +8,7 @@ const Scene = ({scene}) => (
   <div>
   {scene.description}
   </div>
+  <h2>Bohaterowie</h2>
   <ul>
   {
     scene.characters.map( (character, index)=>(

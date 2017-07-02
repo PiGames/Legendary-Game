@@ -1,0 +1,100 @@
+body
+  font-family: "enchanted_land"
+  font-size: 24px
+  margin: 32px
+  background: #DDD7C6
+
+.sheet
+  position: absolute
+  top: 0
+  left: 0
+  height: 100%
+  width: 100%
+  background: url(/mobile-static/img/sheet-middle.png)
+  background-size: 100% 100%
+  z-index: -1
+
+  &::before
+    content: ""
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100px
+    background: url(/mobile-static/img/sheet-top.png)
+    background-size: 100%
+    background-repeat: no-repeat
+
+  &::after
+    content: ""
+    position: absolute
+    bottom: 0px
+    left: 0
+    width: 100%
+    height: 100px
+    background: url(/mobile-static/img/sheet-bottom.png)
+    background-size: 100%
+    background-position: bottom
+    background-repeat: no-repeat
+
+#setupSheet
+  display: block
+  margin: 0 auto
+
+#scene
+  font-size: 40px
+  width: 360px
+
+.sheet-container
+  display: inline-block
+  position: relative
+  padding: 6vw 32px
+  font-family: "enchanted_land"
+  font-size: 24px
+  width: 300px
+  margin-right: 24px
+
+  .character-image
+    width: 100%
+    border: 2px solid #6C642C
+    border-radius: 2px
+
+  h2
+    margin: 0.25em 0
+    text-align: center
+
+  button
+    margin: 0
+    line-height: 24px
+    display: inline-block
+    padding: 0
+    border: 0
+    background: #6c642c
+    color: #fff
+    border-radius: 2px
+    margin-right: 4px
+    font-family: "enchanted_land"
+    font-size: 32px
+    box-shadow: inset 0px -3px 1px rgba(0, 0, 0, 0.5)
+    padding: 4px
+    width: 100%
+    margin-top: 16px
+    font-size: 32px
+    line-height: 32px
+
+.form-category
+  h3
+    margin: 0
+    margin-top: 8px
+
+  .skills
+    button
+      float: right
+      width: auto
+      margin-top: 0
+      height: 24px
+      width: 24px
+      line-height: 16px
+
+.section
+  float: left

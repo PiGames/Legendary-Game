@@ -10,6 +10,7 @@ export default class Layout extends React.Component {
       usersConnected: [],
       usersReady: [],
       hasGameStarted: false,
+      // hasGameStarted: true,
     };
 
     socket.on( "can create game", () => {
@@ -30,8 +31,11 @@ export default class Layout extends React.Component {
     } else {
       return (
       <div>
+        <div className="section">
+          <h2>Opis sceny</h2>
+          <StoryTeller/>
+        </div>
         <Users usersReady={this.state.usersReady} />
-        <StoryTeller/>
       </div>
     );
     }
