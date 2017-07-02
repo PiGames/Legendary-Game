@@ -73,7 +73,10 @@ export default class Layout extends React.Component {
     switch ( this.state.currentView ) {
       case "waitingForStart": {
         return (
-          <Users users={this.state.usersReady}/>
+          <div id="gameEnded">
+            <h1>Oczekiwanie na graczy</h1>
+            <Users users={this.state.usersReady}/>
+          </div>
         );
       }
       case "gameStarted": {
