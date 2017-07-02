@@ -2,6 +2,7 @@ import React from "react";
 import Setup from "./Setup";
 import Users from "./Users";
 import StoryTeller from "./StoryTeller";
+import ThrowDice from './ThrowDice';
 
 export default class Layout extends React.Component {
   constructor() {
@@ -36,6 +37,7 @@ export default class Layout extends React.Component {
           <StoryTeller/>
         </div>
         <Users usersReady={this.state.usersReady} />
+        <ThrowDice/>
       </div>
     );
     }
