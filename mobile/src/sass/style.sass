@@ -1,0 +1,183 @@
+body
+  background: #DDD7C6
+  margin: 0
+  max-width: 500px
+  font-family: "enchanted_land"
+
+.sheet
+  position: absolute
+  top: 0
+  left: 0
+  height: 100%
+  width: 100%
+  background: url(/mobile-static/img/sheet-middle.png)
+  background-size: 100% 100%
+  z-index: -1
+
+  &::before
+    content: ""
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100px
+    background: url(/mobile-static/img/sheet-top.png)
+    background-size: 100%
+    background-repeat: no-repeat
+
+  &::after
+    content: ""
+    position: absolute
+    bottom: 0px
+    left: 0
+    width: 100%
+    height: 100px
+    background: url(/mobile-static/img/sheet-bottom.png)
+    background-size: 100%
+    background-position: bottom
+    background-repeat: no-repeat
+
+form#character-creator
+  position: relative
+  padding: 18vw 32px
+  font-family: "enchanted_land"
+  color: #6C642C
+  font-size: 24px
+  padding-bottom: 20vw
+
+  .character-image
+    width: 100%
+    border: 2px solid #6C642C
+    border-radius: 2px
+
+  h2, h3
+    margin: 0
+
+  h2, span
+    color: #000
+
+  input[type="text"], select
+    background: #6c642c
+    border: 0
+    border-radius: 2px
+    height: 48px
+    width: 100%
+    box-shadow: inset -3px -1px 7px rgba(0,0,0,0.5)
+    box-sizing: border-box
+    color: #fff
+    font-family: "enchanted_land"
+    font-size: 24px
+    line-height: 48px
+    appearance: none
+    padding: 0 16px
+
+  button
+    margin: 0
+    line-height: 24px
+    display: inline-block
+    padding: 0
+    border: 0
+    background: #6c642c
+    color: #fff
+    border-radius: 2px
+    margin-right: 4px
+    font-family: "enchanted_land"
+    font-size: 32px
+    box-shadow: inset 0px -3px 1px rgba(0, 0, 0, 0.5)
+
+    &[type="submit"]
+      padding: 4px
+      width: 100%
+      margin-top: 16px
+      font-size: 32px
+      line-height: 32px
+
+    &:not( [type="submit"] )
+      height: 24px
+      float: right
+      width: 24px
+
+#waitingForStart
+  background: url( "/mobile-static/img/sheet.png" )
+  background-size: 100% 100%
+  background-position: center
+  display: flex
+  font-family: "enchanted_land"
+  font-size: 64px
+  height: 100vh
+  align-items: center
+  justify-content: center
+  text-align: center
+  color: #000
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5)
+  padding: 0 6vw
+
+#gameStarted
+  position: relative
+  padding: 18vw 32px
+  font-family: "enchanted_land"
+  font-size: 24px
+  padding-bottom: 20vw
+
+  h2, h3
+    margin: 0
+
+  .character-image
+    width: 100%
+    border: 2px solid #6C642C
+    border-radius: 2px
+
+  .name
+    text-align: center
+    width: 100%
+    display: inline-block
+
+    h1
+      margin: 0
+      font-size: 64px
+
+  .skill
+    text-align: center
+    width: 50%
+    display: inline-block
+
+    span
+      font-size: 32px
+
+#gameEnded
+  display: flex
+  align-items: center
+  justify-content: center
+  height: 100vh
+  background: url(/mobile-static/img/forest.png)
+  text-align: center
+
+  h1
+    color: #fff
+    font-size: 10vw
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5)
+
+
+#dice
+  button
+    margin: 0
+    line-height: 24px
+    display: inline-block
+    padding: 0
+    border: 0
+    background: #6c642c
+    color: #fff
+    border-radius: 2px
+    margin-right: 4px
+    font-family: "enchanted_land"
+    font-size: 32px
+    box-shadow: inset 0px -3px 1px rgba(0, 0, 0, 0.5)
+    padding: 4px
+    width: 100%
+    margin-top: 16px
+    font-size: 32px
+    line-height: 32px
+
+  h2
+    margin-top: 16px
+    text-align: center
