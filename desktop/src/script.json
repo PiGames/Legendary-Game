@@ -1,0 +1,88 @@
+{
+  "intro": "Miejsce akcji: nowożytna polska\nTło: Bohaterowie w poszukiwaniu przygody udali się do stolicy - Warszawy",
+  "scenes": [
+    {
+      "place": "Obrzeża Warszawy",
+      "description": "Przed bohaterami roztacza się obraz odległego acz imponującego miasta, mogą albo iść na rynek albo zabrać się powozem odpłatnie.",
+      "characters": [
+        {
+          "name": "Dobrosław",
+          "description": "Dobrosław jest prostym acz dobrym i sympatycznym człowiekiem. Zarabia na życie dzięki powozowi który odziedziczył po dziadku. Przeprowadził się do Warszawy ze wsi, jednak szajba mu z tego powodu nie odbiła."
+        }
+      ]
+    },
+    {
+      "place": "Warszawski rynek",
+      "description": "Robi się ciemno. Bohaterowie zostają zaczepieni przez starca o imieniu Ksawery, zauważa, że nie są tutejsi. Bohaterowie mogą porozmawiać lub handlować z postaciami, a następnie udać się do Karczmy",
+      "characters": [
+        {
+          "name": "Ksawery",
+          "description": "Określenie 'dziwny pan', pasuje do niego bardzo dobrze. Wierzy we wszelkiego rodzaju legendy. Nigdy nie widział krasnoluda ani elfa, dlatego spotkanie bohaterów wprawia go w nie lada zdziwienie. Jednak cieszą go przyjezdni, uważa, że ostatnimi czasy jest ich mniej, a to wszystko bo boją się Bazyliszka."
+        },
+        {
+          "name": "Marcin",
+          "description": "Marcin jest szczęśliwym człowiekiem. Zarabia jako płatneż, ma dwójkę dzieci, córeczkę Hankę i synka Maćka. Zrobiłby dla nich wszystko. Oferuje bohaterom kupno jego świetnych zbroi płytowych. Poleca przyjezdnym spocząć w pobliskiej karczmie"
+        }
+      ]
+    },
+    {
+      "place": "Karczma",
+      "description": "Bohaterowie są głodni i spragnieni, poszukują noclegu.",
+      "characters": [
+        {
+          "name": "Telimena",
+          "description": "Barmanka w karczmie. Piękna dojrzała kobieta, z entuzjastycznym podejściem do życia. Nie wierzy w bajki o Bazyliszku. Mówi, że Mścisław od dwóch dni nie płaci. Chętnie oferuje bohaterom nocleg w knajpie"
+        },
+        {
+          "name": "Bronisław",
+          "description": "Pochodzi z Radzynia Podlaskiego, przyjechał do Warszawy reprezentując interesy rodziny Potockich. Bohaterowie spotykają go pijanego. Ten oferuje im wspólną kolejkę. Jednak szybko się składa i zasypia na barze."
+        },
+        {
+          "name": "Mścisław",
+          "description": "Postawny kowal. Szuka zwady. Nie lubi przyjezdnych, a szczególnie krasnoludów i elfów. Jeśli bohaterowie zdecydują się z nim walczyć, Telimena może im zaoferować nocleg za darmo."
+        }
+      ]
+    },
+    {
+      "place": "Karczma - rankiem",
+      "description": "Bohaterowie zostają obudzeni przez krzyki dobiegające z ulicy. Mogą zobaczyć za oknem zrozpaczonego Marcina który wykrzykuje słowa zagrzewające do ataku na Bazyliszka, jednak tłum nie reaguje.",
+      "characters": [
+        {
+          "name": "Marcin",
+          "description": "Marcin dowiedział się, że jego dzieci padły ofiarą spojrzenia bazyliszka. Jest zdeterminowany by pokonać stwora, nawet w pojedynkę."
+        }
+      ]
+    },
+    {
+      "place": "Piwnice kamienic przy Krzywym Kole",
+      "description": "W piwnicy jest zimno, między nogami bohaterów przebiegają szczury wielkości kotów. Szczury zaczynają atakować Marcina który nie umie walczyć",
+      "characters": [
+        {
+          "name": "Marcin",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "place": "Piwnice kamienic przy Krzywym Kole",
+      "description": "Bohaterowie z Marcinem zauważają posągi Hani i Maćka - dzieci Marcina, Marcin roni łze, wyjmuje miecz i jest gotów rzucić się na Bazyliszka, którego ogon zobaczył. Zaraz obok posągów leży zbite lusterko",
+      "characters": [
+        {
+          "name": "Marcin",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "place": "Piwnice kamienic przy Krzywym Kole",
+      "description": "Konfrontacja z bazyliszkiem - dowolny rozwój wydarzeń, bohaterowie mogą zabić bazyliszka i zginąć pod gruzami kamienicy lub np. któryś z bohaterów może zamienić się w posąg próbując zabić bazyliszka mieczem",
+      "characters": [
+        {
+          "name": "Marcin",
+          "description": ""
+        }
+      ]
+    }
+
+  ]
+}
